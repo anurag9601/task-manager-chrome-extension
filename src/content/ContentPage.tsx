@@ -1,9 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./ContentPage.module.css";
-import { IoIosAddCircle } from "react-icons/io";
-import { TbBrandPushover } from "react-icons/tb";
-import { TbHeading } from "react-icons/tb";
-import { FaCheckSquare } from "react-icons/fa";
+import EditorJS from "@editorjs/editorjs";
+import Header from "@editorjs/header";
+import EditorjsList from '@editorjs/list';
 
 const ContentPage = () => {
   const taskManagerBoxRef = useRef<HTMLDivElement | null>(null);
@@ -48,6 +47,19 @@ const ContentPage = () => {
     };
   }, [isDragging, offset]);
 
+  const initEditor = () => {
+    new EditorJS({
+      tools: {
+        header: Header,
+      },
+      holder: "editorjs",
+    });
+  };
+
+  useEffect(() => {
+    initEditor();
+  }, []);
+
   return (
     <>
       {isDragging === true && (
@@ -56,16 +68,7 @@ const ContentPage = () => {
       <div className={styles.taskManagerBox} ref={taskManagerBoxRef}>
         <h4 className={styles.taskManagerBoxHead}>Task manager</h4>
         <hr className={styles.headBottomLine} />
-        <div className={styles.tasksContainer}>
-          <div className={styles.addBtn}>
-            <IoIosAddCircle tabIndex={0} className={styles.createBtn}/>
-            <ul className={styles.createOptions}>
-              <li><TbHeading/> Head</li>
-              <li><TbBrandPushover/> Paragraph</li>
-              <li><FaCheckSquare /> Checklist</li>
-            </ul>
-          </div>
-        </div>
+        <div id="editorjs"></div>
       </div>
     </>
   );

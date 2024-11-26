@@ -15,10 +15,10 @@
 }
 
 .taskManagerBox{
-    height: fit-content;
-    width: 250px;
+    max-height: 400px;
+    width: 200px;
     padding: 10px;
-    background-color: #000000;
+    background-color: #ced4da;
     border-radius: 5px;
     position: fixed;
     top: 20px;
@@ -29,11 +29,12 @@
     border: 1px solid #343a40;
     box-shadow: 0px 0px 10px #495057;
     overflow-wrap: break-word;
+    color: #000000;
 }
 
 .taskManagerBoxHead{
     text-align: center;
-    background: linear-gradient(130deg, #90e0ef, #0077b6);
+    background: linear-gradient(130deg, #495057, #212529);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -72,11 +73,12 @@
     right: 0;
     border-radius: 5px;
     overflow: hidden;
+    background-color: #1d3557;
 }
 
 .createOptions li{
     list-style: none;
-    color: #ffffffff;
+    color: #000000;
     font-size: 16px;
     gap: 10px;
     padding: 10px;
@@ -87,9 +89,14 @@
 }
 
 .createOptions li:hover{
-    background-color: #495057;
+    background-color: #0077b6;
 }
 
 .createBtn:focus-within + .createOptions{
     display: flex;
+}
+
+.tasks{
+    overflow-wrap: break-word;
+    color: #000000;
 }
